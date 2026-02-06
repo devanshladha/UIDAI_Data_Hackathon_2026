@@ -16,7 +16,7 @@ CREATE TABLE Enrolment(
     is_duplicate boolean null
 );
 
-LOAD DATA LOCAL INFILE '/Users/pratibhakothari/Downloads/Enrolment.csv'
+LOAD DATA LOCAL INFILE '../Visualization/enrolment/final_data.csv'
 INTO TABLE Enrolment
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -35,7 +35,7 @@ CREATE TABLE Biometric(
     district_clean VARCHAR(100) null,
     is_duplicate boolean null
 );
-LOAD DATA LOCAL INFILE '/Users/pratibhakothari/Downloads/Biometric.csv'
+LOAD DATA LOCAL INFILE '../Visualization/biometric/final_data.csv'
 INTO TABLE Biometric
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -54,7 +54,7 @@ CREATE TABLE Demographic(
     district_clean VARCHAR(100) null,
     is_duplicate boolean null
 );
-LOAD DATA LOCAL INFILE '/Users/pratibhakothari/Downloads/Demographic.csv'
+LOAD DATA LOCAL INFILE '../Visualization/demographic/final_data.csv'
 INTO TABLE Demographic
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'

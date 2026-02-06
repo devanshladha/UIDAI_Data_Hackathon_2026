@@ -1,4 +1,4 @@
-# percentage of missing data of all datasets, every month
+# percentage of missing date in all datasets, every month
 WITH MonthlyCounts AS (
     SELECT
         month(date_new) as month_num,
@@ -25,26 +25,10 @@ FROM MonthlyCounts m
 LEFT JOIN Demo d ON m.month_num = d.month_num
 LEFT JOIN Bio b ON m.month_num = b.month_num;
 
-
-
-##    number of districts enrolled per month
-select month(date_new),count(distinct district_clean)
-from Enrolment
-group by month(date_new);
-
-## number of districts enrolled per state
-select state_clean,count(distinct state_clean)
-from Enrolment
-group by state_clean;
-
-
-#    states enrolled every month
-SELECT
-    state_clean,sum(age_0_5+age_5_17+age_18_greater)
-FROM Enrolment
-GROUP BY state_clean
-HAVING COUNT(DISTINCT DATE_FORMAT(date_new, '%Y-%m')) =
-       (
-           SELECT COUNT(DISTINCT DATE_FORMAT(date_new, '%Y-%m'))
-           FROM Enrolment
-       );
+## percentage of enrolment per category in whole dataset
+with total as (
+select sum(age_5_17) as 5_17,sum(age_0_5) as under_5,sum(age_18_greater) as adult from Enrolment)
+select under_5/(under_5 + 5_17 + adult)*100,
+       5_17/(under_5 + 5_17 + adult)*100,
+       adult/(under_5 + 5_17 + adult)*100
+from total;

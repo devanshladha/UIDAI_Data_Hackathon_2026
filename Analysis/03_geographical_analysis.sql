@@ -72,38 +72,77 @@ HAVING COUNT(DISTINCT DATE_FORMAT(date_new, '%Y-%m')) =
            FROM Enrolment
        );
 
-# Biometric
+# BIOMETRIC
+# total biometric changes every state
 select state_clean,
        sum(bio_age_5_17+bio_age_5_17_)
 from Biometric
 group by state_clean;
 
-
+# total biometric changes every state in age 5 to 17
 select state_clean,
        sum(bio_age_5_17)
 from Biometric
 group by state_clean;
 
-
+# total biometric changes every state in age 17 above
 select state_clean,
        sum(bio_age_5_17_)
 from Biometric
 group by state_clean;
 
-
+# total biometric changes every district
 select district_clean,
        sum(bio_age_5_17+bio_age_5_17_)
 from Biometric
 group by district_clean;
 
-
+# total biometric changes every district in age 5 to 17
 select district_clean,
        sum(bio_age_5_17)
 from Biometric
 group by district_clean;
 
-
+# total biometric changes every district in age 17 and above
 select district_clean,
        sum(bio_age_5_17_)
 from Biometric
+group by district_clean;
+
+
+# DEMOGRAPHIC
+# total demographic changes every state
+select state_clean,
+       sum(demo_age_5_17+demo_age_5_17_)
+from Demographic
+group by state_clean;
+
+# total demographic changes every state in age 5 to 17
+select state_clean,
+       sum(demo_age_5_17)
+from Demographic
+group by state_clean;
+
+# total demographic changes every state in age 17 above
+select state_clean,
+       sum(demo_age_5_17_)
+from Demographic
+group by state_clean;
+
+# total demographic changes every district
+select district_clean,
+       sum(demo_age_5_17+demo_age_5_17_)
+from Demographic
+group by district_clean;
+
+# total demographic changes every district in age 5 to 17
+select district_clean,
+       sum(demo_age_5_17)
+from Demographic
+group by district_clean;
+
+# total demographic changes every district in age 17 and above
+select district_clean,
+       sum(demo_age_5_17_)
+from Demographic
 group by district_clean;
