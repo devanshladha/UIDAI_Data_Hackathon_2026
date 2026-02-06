@@ -2,6 +2,9 @@
 
 **Team ID:** UIDAI_1336  
 **Event:** UIDAI Data Hackathon 2026  
+**Team Detail**
+- **Devansh Ladha** ( [@devanshladha](https://github.com/devanshladha) )
+- **Akshat Jain** ( [@Akshat-jain737](https://github.com/Akshat-jain737) )
 
 ## Overview
 This project performs a large-scale analytical study on Aadhaar Enrolment and Update datasets published by the Unique Identification Authority of India (UIDAI).  
